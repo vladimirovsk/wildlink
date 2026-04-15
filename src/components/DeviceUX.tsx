@@ -9,6 +9,7 @@ const LED_STATES = [
     id: "pairing",
     label: "Pairing Mode",
     color: "bg-blue-400",
+    iconColor: "text-blue-400",
     ring: "border-blue-400",
     glow: "shadow-blue-400/60",
     animClass: "led-breathing-blue",
@@ -19,6 +20,7 @@ const LED_STATES = [
     id: "linked",
     label: "Linked & Tracking",
     color: "bg-emerald-400",
+    iconColor: "text-emerald-400",
     ring: "border-emerald-400",
     glow: "shadow-emerald-400/60",
     animClass: "",
@@ -29,6 +31,7 @@ const LED_STATES = [
     id: "outofrange",
     label: "Member Out of Range",
     color: "bg-red-400",
+    iconColor: "text-red-400",
     ring: "border-red-400",
     glow: "shadow-red-400/60",
     animClass: "led-pulse-red",
@@ -39,6 +42,7 @@ const LED_STATES = [
     id: "sos",
     label: "SOS Active",
     color: "bg-red-500",
+    iconColor: "text-red-500",
     ring: "border-red-500",
     glow: "shadow-red-500/60",
     animClass: "led-flash-sos",
@@ -136,7 +140,7 @@ export default function DeviceUX() {
 
                 {/* Center */}
                 <div className="relative z-10 flex flex-col items-center gap-2">
-                  <Icon size={28} className={`text-${active.color.replace("bg-", "")}`} />
+                  <Icon size={28} className={active.iconColor} />
                   <span className="text-xs font-bold text-[#F8FAFC]/60 uppercase tracking-widest">WildLink</span>
                 </div>
 

@@ -20,6 +20,7 @@ export default function Home() {
       <ComparisonTable />
       <FounderStory />
       <WaitlistForm />
+      <SupportSection />
       <Footer />
     </>
   );
