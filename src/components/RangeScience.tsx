@@ -483,28 +483,31 @@ export default function RangeScience() {
               </span>
             </div>
 
-            <pre className="font-mono text-[11px] leading-6 p-5 flex-1 overflow-x-auto text-[#F8FAFC]/80">{`<span class="text-emerald-400/60"># Transmit chain</span>
-TX Power (SX1262 max)     <span class="text-[#FF5C00]">+22.0 dBm</span>
-Antenna gain (dipole)     <span class="text-[#FF5C00]"> +2.0 dBi</span>
-Cable / connector loss    <span class="text-[#FF5C00]"> -1.0 dB</span>
-                          ─────────────
-EIRP                      <span class="text-[#FF5C00]">+23.0 dBm</span>
-
-<span class="text-emerald-400/60"># Receive chain</span>
-RX Sensitivity (SF12)     <span class="text-yellow-400">-148.0 dBm</span>  ← AN1200.28
-RX Antenna gain           <span class="text-yellow-400">  +2.0 dBi</span>
-                          ─────────────
-MAX Allowable Path Loss   <span class="text-emerald-400">+173.0 dB</span>
-
-<span class="text-emerald-400/60"># Environment deductions</span>
-Forest attenuation (dry)  <span class="text-orange-400"> -30–90 dB</span>  (0.1–0.3 dB/m)
-Forest attenuation (wet)  <span class="text-red-400">-60–150 dB</span>  (0.3–0.5 dB/m)
-Fresnel obstruction       <span class="text-red-400">  -15–30 dB</span>  (ridge / ravine)
-                          ─────────────
-<span class="text-emerald-400/60"># Effective range estimate (Hata / ITM)</span>
-Dense forest, dry:        <span class="text-emerald-400">800 m – 1.5 km</span>
-Dense forest, wet:        <span class="text-orange-400">500 m –  900 m</span>  ← Guardian alert
-RF shadow (no mesh):      <span class="text-red-400">300 m –  700 m</span>`}</pre>
+            <div className="font-mono text-[11px] leading-6 p-5 flex-1 overflow-x-auto text-[#F8FAFC]/80 whitespace-pre">
+              <span className="text-emerald-400/60"># Transmit chain{"\n"}</span>
+              {"TX Power (SX1262 max)     "}<span className="text-[#FF5C00]">+22.0 dBm</span>{"\n"}
+              {"Antenna gain (dipole)     "}<span className="text-[#FF5C00]"> +2.0 dBi</span>{"\n"}
+              {"Cable / connector loss    "}<span className="text-[#FF5C00]"> -1.0 dB</span>{"\n"}
+              {"                          ─────────────\n"}
+              {"EIRP                      "}<span className="text-[#FF5C00]">+23.0 dBm</span>{"\n"}
+              {"\n"}
+              <span className="text-emerald-400/60"># Receive chain{"\n"}</span>
+              {"RX Sensitivity (SF12)     "}<span className="text-yellow-400">-148.0 dBm</span>{"  ← AN1200.28\n"}
+              {"RX Antenna gain           "}<span className="text-yellow-400">  +2.0 dBi</span>{"\n"}
+              {"                          ─────────────\n"}
+              {"MAX Allowable Path Loss   "}<span className="text-emerald-400">+173.0 dB</span>{"\n"}
+              {"\n"}
+              <span className="text-emerald-400/60"># Environment deductions{"\n"}</span>
+              {"Forest attenuation (dry)  "}<span className="text-orange-400"> -30–90 dB</span>{"  (0.1–0.3 dB/m)\n"}
+              {"Forest attenuation (wet)  "}<span className="text-red-400">-60–150 dB</span>{"  (0.3–0.5 dB/m)\n"}
+              {"Fresnel obstruction       "}<span className="text-red-400">  -15–30 dB</span>{"  (ridge / ravine)\n"}
+              {"                          ─────────────\n"}
+              {"\n"}
+              <span className="text-emerald-400/60"># Effective range estimate (Hata / ITM){"\n"}</span>
+              {"Dense forest, dry:        "}<span className="text-emerald-400">800 m – 1.5 km</span>{"\n"}
+              {"Dense forest, wet:        "}<span className="text-orange-400">500 m –  900 m</span>{"  ← Guardian alert\n"}
+              {"RF shadow (no mesh):      "}<span className="text-red-400">300 m –  700 m</span>
+            </div>
           </div>
         </motion.div>
 
