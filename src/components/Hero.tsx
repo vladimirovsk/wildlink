@@ -48,7 +48,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5C00]" />
               </span>
-              Calgary Beta — Limited Spots
+              Canada Beta — Limited Spots
             </motion.div>
 
             {/* Main headline */}
@@ -90,7 +90,7 @@ export default function Hero() {
                 href="#waitlist"
                 className="inline-flex items-center justify-center gap-2 bg-[#FF5C00] hover:bg-[#e05200] active:scale-95 text-white font-bold text-base px-8 py-4 rounded-full transition-all duration-200 shadow-lg shadow-[#FF5C00]/25"
               >
-                Join Calgary Beta — 30% Off
+                Join Canadian Beta — 30% Off
               </a>
               <a
                 href="#device"

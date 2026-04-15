@@ -7,7 +7,7 @@ import { Heart, Coffee, Wrench, Cpu } from "lucide-react";
 const spends = [
   { icon: Cpu, label: "LoRa modules & prototypes" },
   { icon: Wrench, label: "Field testing equipment" },
-  { icon: Coffee, label: "Late nights in a Calgary R&D studio" },
+  { icon: Coffee, label: "Late nights in a Canadian R&D studio" },
 ];
 
 export default function SupportSection() {
@@ -46,7 +46,7 @@ export default function SupportSection() {
 
           {/* Body */}
           <p className="text-[#F8FAFC]/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            WildLink is a Calgary-based engineering initiative with no outside investors
+            WildLink is a Canada-based engineering initiative with no outside investors
             and no corporate budget. Every prototype, every LoRa module, and every field
             run in Kananaskis has been funded personally. If this mission resonates with
             you, any support helps move us closer to production.

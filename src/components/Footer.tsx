@@ -15,7 +15,7 @@ export default function Footer() {
             </span>
             <div className="flex items-center gap-1.5 text-xs text-[#F8FAFC]/30">
               <MapPin size={10} className="text-[#FF5C00]" />
-              <span>Built in Calgary, AB, Canada</span>
+              <span>Built in Canada</span>
             </div>
           </div>
 

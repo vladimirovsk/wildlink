@@ -246,7 +246,7 @@ function MoistureDiagram() {
         <p className="font-mono text-[10px] text-[#F8FAFC]/35 leading-relaxed">
           Conifer needle surfaces (Picea glauca, Abies lasiocarpa) accumulate free water after precipitation,
           increasing the complex permittivity of the canopy medium and raising 915 MHz absorption.
-          Calgary foothills receive avg. 410 mm annual precipitation — with peak needle moisture in May–June.
+          Canadian Rocky Mountain foothills receive avg. 410 mm annual precipitation — with peak needle moisture in May–June.
         </p>
       </div>
     </div>
@@ -601,7 +601,7 @@ export default function RangeScience() {
           >
             <div className="font-mono text-[10px] text-[#FF5C00] uppercase tracking-widest mb-3 flex items-center gap-2">
               <span className="text-[#F8FAFC]/25">§ 2</span>
-              Wet Foliage Attenuation — The Calgary Effect
+              Wet Foliage Attenuation — The Canadian Rockies Effect
             </div>
             <MoistureDiagram />
             <p className="text-xs text-[#F8FAFC]/45 leading-relaxed mt-4">

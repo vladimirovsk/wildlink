@@ -59,7 +59,7 @@ export default function WaitlistForm() {
 
   const perks = [
     { icon: Tag, text: "30% off at official launch" },
-    { icon: MapPin, text: "Priority shipping — Calgary first" },
+    { icon: MapPin, text: "Priority shipping — Canada first" },
     { icon: Shield, text: "Shape the product — your feedback matters" },
   ];
 
@@ -102,11 +102,11 @@ export default function WaitlistForm() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5C00]" />
               </span>
-              Calgary Beta — Limited Spots Remaining
+              Canadian Beta — Limited Spots Remaining
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-              Join the Calgary
+              Join the Canadian
               <br />
               <span className="text-[#FF5C00]">Beta Program.</span>
             </h2>
@@ -149,7 +149,7 @@ export default function WaitlistForm() {
                 <p className="text-[#F8FAFC]/60 max-w-md mx-auto">
                   We&apos;ll reach out to{" "}
                   <span className="text-emerald-400 font-medium">{form.email}</span>{" "}
-                  when Calgary beta spots open. Tell a hiking friend — they&apos;ll thank you later.
+                  when Canadian beta spots open. Tell a hiking friend — they&apos;ll thank you later.
                 </p>
                 <div className="mt-6 flex justify-center gap-3 flex-wrap">
                   <div className="bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full text-sm text-emerald-400 font-semibold">
@@ -199,7 +199,7 @@ export default function WaitlistForm() {
                   </label>
                   <input
                     type="text"
-                    placeholder="Calgary, AB"
+                    placeholder="Vancouver, BC"
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
                     className="bg-white/5 border border-white/15 focus:border-[#FF5C00]/60 outline-none rounded-xl px-4 py-3 text-[#F8FAFC] placeholder:text-[#F8FAFC]/25 text-sm transition-colors"
@@ -261,7 +261,7 @@ export default function WaitlistForm() {
                       I&apos;m building this entirely out of my own pocket.
                     </p>
                     <p className="text-xs text-[#F8FAFC]/40 leading-relaxed">
-                      No outside investors — just a Calgary R&D studio, custom PCBs, and
+                      No outside investors — just a Canadian R&D studio, custom PCBs, and
                       rigorous field testing in Kananaskis. If you&apos;d like to chip in,
                       a donation button is coming very soon.
                     </p>
