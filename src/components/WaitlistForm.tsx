@@ -261,8 +261,9 @@ export default function WaitlistForm() {
                       I&apos;m building this entirely out of my own pocket.
                     </p>
                     <p className="text-xs text-[#F8FAFC]/40 leading-relaxed">
-                      No investors — just a Calgary garage, LoRa modules, and trail runs in Kananaskis.
-                      If you&apos;d like to chip in, a donation button is coming very soon.
+                      No outside investors — just a Calgary R&D studio, custom PCBs, and
+                      rigorous field testing in Kananaskis. If you&apos;d like to chip in,
+                      a donation button is coming very soon.
                     </p>
                   </div>
                   <div className="relative flex-shrink-0">

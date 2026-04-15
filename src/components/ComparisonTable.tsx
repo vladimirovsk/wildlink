@@ -81,10 +81,10 @@ export default function ComparisonTable() {
         >
           <div className="min-w-[640px]">
             {/* Header row */}
-            <div className="grid grid-cols-4 gap-px mb-px">
+            <div className="grid grid-cols-4 gap-px mb-px mt-5">
               <div className="bg-[#0F1F16] rounded-tl-2xl p-4 sticky left-0 z-10" />
               {/* WildLink */}
-              <div className="bg-[#FF5C00]/10 border border-[#FF5C00]/30 rounded-t-2xl p-5 text-center relative">
+              <div className="bg-[#FF5C00]/10 border border-[#FF5C00]/30 rounded-t-2xl p-5 pt-8 text-center relative">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF5C00] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
                   Best Value
                 </div>

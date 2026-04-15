@@ -7,7 +7,7 @@ import { Heart, Coffee, Wrench, Cpu } from "lucide-react";
 const spends = [
   { icon: Cpu, label: "LoRa modules & prototypes" },
   { icon: Wrench, label: "Field testing equipment" },
-  { icon: Coffee, label: "A lot of coffee in a Calgary garage" },
+  { icon: Coffee, label: "Late nights in a Calgary R&D studio" },
 ];
 
 export default function SupportSection() {
@@ -40,16 +40,16 @@ export default function SupportSection() {
 
           {/* Heading */}
           <h2 className="text-3xl lg:text-4xl font-black text-[#F8FAFC] leading-tight mb-5">
-            I&apos;m building this{" "}
-            <span className="text-[#FF5C00]">entirely out of my own pocket.</span>
+            An independent R&D initiative,{" "}
+            <span className="text-[#FF5C00]">self-funded from day one.</span>
           </h2>
 
           {/* Body */}
           <p className="text-[#F8FAFC]/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            WildLink is an independent project. No venture capital, no corporate budget.
-            Every prototype, every LoRa module, and every test run in Kananaskis comes
-            out of my own savings. If this idea resonates with you and you&apos;d like
-            to help it reach a shelf — any support is genuinely appreciated.
+            WildLink is a Calgary-based engineering initiative with no outside investors
+            and no corporate budget. Every prototype, every LoRa module, and every field
+            run in Kananaskis has been funded personally. If this mission resonates with
+            you, any support helps move us closer to production.
           </p>
 
           {/* What money goes to */}

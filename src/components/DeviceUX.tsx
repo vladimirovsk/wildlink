@@ -85,7 +85,7 @@ export default function DeviceUX() {
             <div className="h-px w-12 bg-[#FF5C00]" />
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-            Ready in <span className="text-[#FF5C00]">3 Seconds</span>.<br />No Logins. No Passwords.
+            Ready in <span className="text-[#FF5C00]">3 Seconds</span><br />No Logins. No Passwords.
           </h2>
           <p className="text-[#F8FAFC]/60 text-lg">
             Turn on the device → open wildlink.ca on your phone → tap Connect.
