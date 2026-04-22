@@ -13,15 +13,15 @@ export default function DonationSuccessModal() {
   useEffect(() => {
     if (searchParams.get("donation") === "success") {
       setVisible(true);
+      // Strip the param immediately so refresh / manual URL entry won't reopen the modal
+      const url = new URL(window.location.href);
+      url.searchParams.delete("donation");
+      router.replace(url.pathname + (url.search || ""), { scroll: false });
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   const close = () => {
     setVisible(false);
-    // Remove query param from URL without page reload
-    const url = new URL(window.location.href);
-    url.searchParams.delete("donation");
-    router.replace(url.pathname + (url.search || ""), { scroll: false });
   };
 
   return (
