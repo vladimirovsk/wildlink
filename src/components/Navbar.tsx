@@ -56,18 +56,12 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           {/* Demo App — coming soon */}
           <div className="relative">
-            <a
-              href="https://app.wildlink.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-[#FF5C00]/50 text-[#F8FAFC]/55 hover:text-[#F8FAFC] font-semibold text-sm px-4 py-2 rounded-full transition-all duration-200"
-            >
+            <span className="inline-flex items-center gap-2 border border-white/20 text-[#F8FAFC]/30 font-semibold text-sm px-4 py-2 rounded-full cursor-not-allowed select-none">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF5C00]/70" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF5C00]/40" />
               </span>
               Web App
-            </a>
+            </span>
             <span className="absolute -top-2.5 -right-1 bg-[#334155] text-[#F8FAFC]/60 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-white/10 pointer-events-none">
               Soon
             </span>
@@ -112,19 +106,10 @@ export default function Navbar() {
               ))}
               {/* Demo App mobile */}
               <div className="relative self-start">
-                <a
-                  href="https://app.wildlink.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-2 border border-white/20 text-[#F8FAFC]/55 font-semibold text-sm px-5 py-3 rounded-full"
-                >
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-60" />
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF5C00]/70" />
-                  </span>
+                <span className="inline-flex items-center gap-2 border border-white/20 text-[#F8FAFC]/30 font-semibold text-sm px-5 py-3 rounded-full cursor-not-allowed select-none">
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#FF5C00]/40" />
                   Web App
-                </a>
+                </span>
                 <span className="absolute -top-2 -right-1 bg-[#334155] text-[#F8FAFC]/60 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-white/10 pointer-events-none">
                   Soon
                 </span>
