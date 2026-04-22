@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import DeviceUX from "@/components/DeviceUX";
@@ -12,10 +13,14 @@ import PartnershipSection from "@/components/PartnershipSection";
 import WaitlistForm from "@/components/WaitlistForm";
 import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
+import DonationSuccessModal from "@/components/DonationSuccessModal";
 
 export default function Home() {
   return (
     <>
+      <Suspense>
+        <DonationSuccessModal />
+      </Suspense>
       <Navbar />
       <Hero />
       <DeviceUX />

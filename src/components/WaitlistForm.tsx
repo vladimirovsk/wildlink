@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Send, CheckCircle, MapPin, Shield, Tag, Heart } from "lucide-react";
+import { Send, CheckCircle, MapPin, Shield, Tag, Heart, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 export default function WaitlistForm() {
@@ -13,6 +13,33 @@ export default function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Donation mini-form state
+  const [donationAmount, setDonationAmount] = useState<number>(10);
+  const [donationLoading, setDonationLoading] = useState(false);
+
+  const handleDonate = async () => {
+    setDonationLoading(true);
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:9087";
+      const apiKey = process.env.NEXT_PUBLIC_LEADS_API_KEY ?? "";
+      const res = await fetch(`${apiUrl}/api/v1/donations/checkout-session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Api-Key": apiKey },
+        body: JSON.stringify({
+          amount: donationAmount * 100,
+          name: form.name || undefined,
+          email: form.email || undefined,
+          note: "WildLink R&D Support",
+        }),
+      });
+      if (!res.ok) throw new Error("Checkout failed");
+      const { url } = await res.json() as { url: string };
+      window.location.href = url;
+    } catch {
+      setDonationLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -252,33 +279,54 @@ export default function WaitlistForm() {
                 </p>
 
                 {/* Donation block */}
-                <div className="sm:col-span-2 mt-2 border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center gap-5">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#FF5C00]/10 border border-[#FF5C00]/20 flex items-center justify-center">
-                    <Heart size={18} className="text-[#FF5C00]" />
+                <div className="sm:col-span-2 mt-2 border-t border-white/8 pt-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#FF5C00]/10 border border-[#FF5C00]/20 flex items-center justify-center">
+                      <Heart size={18} className="text-[#FF5C00]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#F8FAFC]/80 mb-0.5">
+                        I&apos;m building this entirely out of my own pocket.
+                      </p>
+                      <p className="text-xs text-[#F8FAFC]/40 leading-relaxed">
+                        No outside investors — just a Canadian R&D studio, custom PCBs, and
+                        rigorous field testing in Kananaskis.
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1 text-center sm:text-left">
-                    <p className="text-sm font-semibold text-[#F8FAFC]/80 mb-0.5">
-                      I&apos;m building this entirely out of my own pocket.
-                    </p>
-                    <p className="text-xs text-[#F8FAFC]/40 leading-relaxed">
-                      No outside investors — just a Canadian R&D studio, custom PCBs, and
-                      rigorous field testing in Kananaskis. If you&apos;d like to chip in,
-                      a donation button is coming very soon.
-                    </p>
-                  </div>
-                  <div className="relative flex-shrink-0">
+                  {/* Amount presets + button */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    {[5, 10, 25, 50].map((amt) => (
+                      <button
+                        key={amt}
+                        type="button"
+                        onClick={() => setDonationAmount(amt)}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-150 ${
+                          donationAmount === amt
+                            ? "bg-[#FF5C00] text-white shadow-md shadow-[#FF5C00]/20"
+                            : "bg-white/6 border border-white/15 text-[#F8FAFC]/60 hover:border-[#FF5C00]/40"
+                        }`}
+                      >
+                        ${amt}
+                      </button>
+                    ))}
+                    <span className="text-[#F8FAFC]/25 text-xs">CAD</span>
                     <button
                       type="button"
-                      disabled
-                      className="inline-flex items-center gap-2 bg-white/5 border border-white/15 text-[#F8FAFC]/30 text-sm font-semibold px-5 py-2.5 rounded-full cursor-not-allowed"
-                      title="Coming soon — donations via Stripe"
+                      onClick={handleDonate}
+                      disabled={donationLoading}
+                      className="ml-auto inline-flex items-center gap-2 bg-[#FF5C00]/15 hover:bg-[#FF5C00]/25 border border-[#FF5C00]/40 text-[#FF5C00] text-sm font-bold px-5 py-2 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Heart size={14} />
-                      Support
+                      {donationLoading ? (
+                        <div className="w-4 h-4 border-2 border-[#FF5C00]/30 border-t-[#FF5C00] rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <Heart size={13} className="fill-[#FF5C00]" />
+                          Support ${donationAmount}
+                          <ExternalLink size={11} className="opacity-60" />
+                        </>
+                      )}
                     </button>
-                    <span className="absolute -top-2.5 -right-2 bg-[#334155] text-[#F8FAFC]/60 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-white/10">
-                      Soon
-                    </span>
                   </div>
                 </div>
               </form>
