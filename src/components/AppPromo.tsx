@@ -84,20 +84,18 @@ export default function AppPromo() {
                 href="https://app.wildlink.ca"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#FF5C00]/15 border-2 border-[#FF5C00]/35 text-[#FF5C00]/70 font-bold text-base px-8 py-4 rounded-full select-none cursor-default"
-                onClick={(e) => e.preventDefault()}
-                aria-disabled="true"
+                className="inline-flex items-center gap-3 bg-[#FF5C00]/15 hover:bg-[#FF5C00]/25 border-2 border-[#FF5C00]/60 hover:border-[#FF5C00] text-[#FF5C00] font-bold text-base px-8 py-4 rounded-full transition-all duration-200"
               >
                 <ExternalLink size={18} />
                 Open app.wildlink.ca
               </a>
-              <span className="absolute -top-3 -right-3 bg-[#334155] text-[#F8FAFC]/70 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-white/10 whitespace-nowrap">
-                Coming Soon
+              <span className="absolute -top-3 -right-3 bg-[#FF5C00] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full whitespace-nowrap">
+                Test
               </span>
             </div>
 
-            <p className="mt-4 text-xs text-[#F8FAFC]/25">
-              The web app is in active development. Join the beta to get early access.
+            <p className="mt-4 text-xs text-[#F8FAFC]/40">
+              Early test version. Join the beta to follow development.
             </p>
           </motion.div>
 
