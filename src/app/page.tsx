@@ -14,12 +14,16 @@ import WaitlistForm from "@/components/WaitlistForm";
 import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
 import DonationSuccessModal from "@/components/DonationSuccessModal";
+import EmailVerifiedModal from "@/components/EmailVerifiedModal";
 
 export default function Home() {
   return (
     <>
       <Suspense>
         <DonationSuccessModal />
+      </Suspense>
+      <Suspense>
+        <EmailVerifiedModal />
       </Suspense>
       <Navbar />
       <Hero />
