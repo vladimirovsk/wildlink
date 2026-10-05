@@ -1,21 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, X, MapPin, Tag, Shield } from "lucide-react";
 
 export default function EmailVerifiedModal() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [success, setSuccess] = useState(true);
 
   useEffect(() => {
     const verified = searchParams.get("verified");
     if (verified === "true" || verified === "false") {
-      setSuccess(verified === "true");
-      setVisible(true);
+      requestAnimationFrame(() => {
+        setSuccess(verified === "true");
+        setVisible(true);
+      });
       const url = new URL(window.location.href);
       url.searchParams.delete("verified");
       window.history.replaceState({}, '', url.pathname + (url.search || ""));

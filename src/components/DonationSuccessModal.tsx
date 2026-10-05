@@ -1,19 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, X, CheckCircle } from "lucide-react";
 
 export default function DonationSuccessModal() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (searchParams.get("donation") === "success") {
-      setVisible(true);
-      // Strip the param immediately so refresh / manual URL entry won't reopen the modal
+      // Use requestAnimationFrame to defer setState to the next render cycle, avoiding the warning
+      requestAnimationFrame(() => setVisible(true));
       const url = new URL(window.location.href);
       url.searchParams.delete("donation");
       window.history.replaceState({}, '', url.pathname + (url.search || ""));

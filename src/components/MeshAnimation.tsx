@@ -82,8 +82,10 @@ export default function MeshAnimation() {
     if (!inView || mode !== "sos") {
       return;
     }
-    setSosActive(true);
-    setActiveSignal(0);
+    requestAnimationFrame(() => {
+      setSosActive(true);
+      setActiveSignal(0);
+    });
     let step = 0;
     const iv = setInterval(() => {
       step++;
