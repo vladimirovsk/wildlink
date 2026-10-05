@@ -18,9 +18,9 @@ export default function EmailVerifiedModal() {
       setVisible(true);
       const url = new URL(window.location.href);
       url.searchParams.delete("verified");
-      router.replace(url.pathname + (url.search || ""), { scroll: false });
+      window.history.replaceState({}, '', url.pathname + (url.search || ""));
     }
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   const close = () => setVisible(false);
 

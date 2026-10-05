@@ -80,8 +80,6 @@ export default function MeshAnimation() {
   // SOS animation
   useEffect(() => {
     if (!inView || mode !== "sos") {
-      setSosActive(false);
-      setActiveSignal(-1);
       return;
     }
     setSosActive(true);
@@ -106,10 +104,8 @@ export default function MeshAnimation() {
   // Guardian animation
   useEffect(() => {
     if (!inView || mode !== "guardian") {
-      setChildStep(0);
       return;
     }
-    setChildStep(0);
     let step = 0;
     const iv = setInterval(() => {
       step++;

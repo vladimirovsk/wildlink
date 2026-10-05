@@ -36,8 +36,8 @@ function RelayDiagram() {
         <rect width="580" height="300" fill="#0a1810" />
 
         {/* Stars */}
-        {[[30,20],[80,12],[150,8],[250,18],[350,6],[430,14],[510,10],[560,22],[55,40],[190,32],[320,28],[480,35]].map(([x,y],i)=>(
-          <circle key={i} cx={x} cy={y} r="1" fill="#F8FAFC" opacity={0.2+Math.random()*0.3}/>
+        {[[30,20],[80,12],[150,8],[250,18],[350,6],[430,14],[510,10],[560,22],[55,40],[190,32],[320,28],[480,35]].map((star, i)=>(
+          <circle key={i} cx={star[0]} cy={star[1]} r="1" fill="#F8FAFC" opacity={0.35}/>
         ))}
 
         {/* Mountains */}
@@ -306,7 +306,7 @@ export default function MeshExplainer() {
               </h3>
               <p className="text-sm text-[#F8FAFC]/55 leading-relaxed">
                 Meshtastic is a worldwide open-source project with thousands of
-                active contributors. It is not a proprietary "black box" — it is
+                active contributors. It is not a proprietary &quot;black box&quot; — it is
                 a transparent, auditable protocol that engineers across the globe
                 are improving every day.
               </p>

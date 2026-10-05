@@ -16,9 +16,9 @@ export default function DonationSuccessModal() {
       // Strip the param immediately so refresh / manual URL entry won't reopen the modal
       const url = new URL(window.location.href);
       url.searchParams.delete("donation");
-      router.replace(url.pathname + (url.search || ""), { scroll: false });
+      window.history.replaceState({}, '', url.pathname + (url.search || ""));
     }
-  }, [searchParams, router]);
+  }, [searchParams]);
 
   const close = () => {
     setVisible(false);
