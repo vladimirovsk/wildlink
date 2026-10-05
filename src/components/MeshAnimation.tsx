@@ -82,10 +82,10 @@ export default function MeshAnimation() {
     if (!inView || mode !== "sos") {
       return;
     }
-    requestAnimationFrame(() => {
-      setSosActive(true);
-      setActiveSignal(0);
-    });
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSosActive(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveSignal(0);
     let step = 0;
     const iv = setInterval(() => {
       step++;

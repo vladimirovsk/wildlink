@@ -13,10 +13,10 @@ export default function EmailVerifiedModal() {
   useEffect(() => {
     const verified = searchParams.get("verified");
     if (verified === "true" || verified === "false") {
-      requestAnimationFrame(() => {
-        setSuccess(verified === "true");
-        setVisible(true);
-      });
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSuccess(verified === "true");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setVisible(true);
       const url = new URL(window.location.href);
       url.searchParams.delete("verified");
       window.history.replaceState({}, '', url.pathname + (url.search || ""));

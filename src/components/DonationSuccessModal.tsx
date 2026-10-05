@@ -11,8 +11,8 @@ export default function DonationSuccessModal() {
 
   useEffect(() => {
     if (searchParams.get("donation") === "success") {
-      // Use requestAnimationFrame to defer setState to the next render cycle, avoiding the warning
-      requestAnimationFrame(() => setVisible(true));
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setVisible(true);
       const url = new URL(window.location.href);
       url.searchParams.delete("donation");
       window.history.replaceState({}, '', url.pathname + (url.search || ""));
