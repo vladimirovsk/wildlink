@@ -157,7 +157,7 @@ export default function FounderStory() {
                 <span className="text-lg font-black text-[#F8FAFC]">S</span>
               </div>
               <div>
-                <div className="font-bold text-[#F8FAFC]">Serge Vladimirov</div>
+                <div className="font-bold text-[#F8FAFC]">Serhii Vladimirov</div>
                 <div className="text-sm text-[#F8FAFC]/50">
                   Senior Software Architect & Embedded Systems Engineer · Calgary, AB
                 </div>
