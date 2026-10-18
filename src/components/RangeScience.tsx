@@ -376,7 +376,6 @@ export default function RangeScience() {
 
         {/* ── Paper header ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-14"
@@ -395,17 +394,7 @@ export default function RangeScience() {
 
           <div className="grid lg:grid-cols-2 gap-8 items-end">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-12 bg-[#FF5C00]" />
-                <span className="font-mono text-xs uppercase tracking-widest text-[#FF5C00] font-semibold">
-                  Engineering Honesty
-                </span>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight">
-                Understanding
-                <br />
-                <span className="text-[#FF5C00]">Range & Reliability.</span>
-              </h2>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-[#F8FAFC]">Understanding Range & Reliability.</h2>
             </div>
 
             <div className="bg-white/3 border border-white/10 rounded-2xl p-5">
@@ -428,7 +417,6 @@ export default function RangeScience() {
 
         {/* ── Link Budget ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="grid lg:grid-cols-2 gap-6 mb-10"
@@ -439,7 +427,7 @@ export default function RangeScience() {
               <span className="font-mono text-[10px] text-[#FF5C00] uppercase tracking-widest">
                 § 1 — Frequency Selection
               </span>
-              <h3 className="text-lg font-black text-[#F8FAFC] mt-2">
+              <h3 className="text-lg font-bold text-[#F8FAFC] mt-2">
                 Why 915 MHz?
               </h3>
             </div>
@@ -513,7 +501,6 @@ export default function RangeScience() {
 
         {/* ── Range Truth Table ── */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-10 bg-white/2 border border-white/10 rounded-2xl overflow-hidden"
@@ -595,7 +582,6 @@ export default function RangeScience() {
         {/* ── Diagrams ── */}
         <div className="grid lg:grid-cols-2 gap-6 mb-10">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
@@ -615,7 +601,6 @@ export default function RangeScience() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
@@ -637,7 +622,6 @@ export default function RangeScience() {
 
         {/* ── References ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.45 }}
           className="bg-white/2 border border-white/8 rounded-2xl overflow-hidden"

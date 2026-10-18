@@ -5,6 +5,10 @@
   --orange: #FF5C00;
   --slate: #334155;
   --alpine: #F8FAFC;
+  --mist: #EEF2EE;
+  --stone: #FBFCFA;
+  --lake: #1F8F8A;
+  --sos: #E5372E;
   --background: #0F1F16;
   --foreground: #F8FAFC;
 }
@@ -16,7 +20,12 @@
   --color-orange: var(--orange);
   --color-slate: var(--slate);
   --color-alpine: var(--alpine);
-  --font-sans: var(--font-inter);
+  --color-mist: var(--mist);
+  --color-stone: var(--stone);
+  --color-lake: var(--lake);
+  --color-sos: var(--sos);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 * {
@@ -27,10 +36,29 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Decorative glows may bleed past the viewport; clip them without making a scroll container */
+section,
+footer {
+  overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
 body {
   background: var(--forest);
   color: var(--alpine);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   overflow-x: hidden;
 }
 

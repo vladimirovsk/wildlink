@@ -51,21 +51,11 @@ export default function ComparisonTable() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14 max-w-3xl mx-auto"
+          className="mb-14 max-w-3xl"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#FF5C00]" />
-            <span className="text-xs uppercase tracking-widest text-[#FF5C00] font-semibold">Compare</span>
-            <div className="h-px w-12 bg-[#FF5C00]" />
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-            Why Pay $600/yr for
-            <br />
-            <span className="text-[#FF5C00]">Half the Features?</span>
-          </h2>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-[#F8FAFC]">Why Pay $600/yr for Half the Features?</h2>
           <p className="text-[#F8FAFC]/60 text-lg">
             WildLink does more, costs nothing monthly, and was built specifically
             for group outdoor use in the Canadian Rockies.
@@ -74,7 +64,6 @@ export default function ComparisonTable() {
 
         {/* Table */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15 }}
           className="overflow-x-auto"
@@ -88,7 +77,7 @@ export default function ComparisonTable() {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF5C00] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full whitespace-nowrap">
                   Best Value
                 </div>
-                <div className="font-black text-[#F8FAFC] text-lg mt-2">
+                <div className="font-bold text-[#F8FAFC] text-lg mt-2">
                   Wild<span className="text-[#FF5C00]">Link</span>
                 </div>
                 <div className="text-[#FF5C00] font-bold text-sm mt-1">$0 / month</div>
@@ -158,7 +147,6 @@ export default function ComparisonTable() {
 
         {/* Footnote */}
         <motion.p
-          initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-8 text-center text-xs text-[#F8FAFC]/30"

@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "How It Works", href: "#device" },
+  { label: "How it works", href: "#device" },
   { label: "Scenarios", href: "#scenarios" },
   { label: "Compare", href: "#compare" },
-  { label: "Our Story", href: "#story" },
+  { label: "Our story", href: "#story" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -34,9 +35,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <span className="text-xl font-black tracking-tight text-[#F8FAFC]">
+          <span className="font-display text-2xl font-semibold tracking-tight text-[#F8FAFC]">
             Wild<span className="text-[#FF5C00]">Link</span>
-            <span className="text-[#FF5C00] text-sm font-semibold">.ca</span>
+            <span className="text-[#FF5C00] text-base font-medium">.ca</span>
           </span>
         </a>
 

@@ -98,7 +98,7 @@ export default function WaitlistForm() {
           src="/images/eiffel-lake.jpg"
           alt="Eiffel Lake, Alberta Canadian Rockies"
           fill
-          className="object-cover object-center opacity-15"
+          className="object-cover object-center opacity-30"
           quality={60}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1810]/95 to-[#0F1F16]/98" />
@@ -119,24 +119,19 @@ export default function WaitlistForm() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 bg-[#FF5C00]/10 border border-[#FF5C00]/30 text-[#FF5C00] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#FF5C00]/10 border border-[#FF5C00]/30 text-[#FF5C00] text-xs font-semibold px-4 py-2 rounded-full mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5C00] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5C00]" />
               </span>
-              Canadian Beta — Limited Spots Remaining
+              Canadian beta, limited spots remaining
             </div>
 
-            <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-              Join the Canadian
-              <br />
-              <span className="text-[#FF5C00]">Beta Program.</span>
-            </h2>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-[#F8FAFC]">Join the Canadian Beta Program.</h2>
             <p className="text-[#F8FAFC]/60 text-lg max-w-2xl mx-auto">
               Be the first to test WildLink on Rockies trails. Get 30% off at launch and help
               shape the device that keeps Albertan families safe.
@@ -145,7 +140,6 @@ export default function WaitlistForm() {
 
           {/* Perks */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="grid sm:grid-cols-3 gap-4 mb-10"
@@ -163,14 +157,13 @@ export default function WaitlistForm() {
 
           {/* Form / Success */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {submitted ? (
               <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-10 text-center">
                 <CheckCircle size={56} className="text-emerald-400 mx-auto mb-5" />
-                <h3 className="text-2xl font-black text-[#F8FAFC] mb-3">
+                <h3 className="text-2xl font-bold text-[#F8FAFC] mb-3">
                   You&apos;re on the list, {form.name.split(" ")[0]}!
                 </h3>
                 <p className="text-[#F8FAFC]/60 max-w-md mx-auto">
@@ -193,7 +186,7 @@ export default function WaitlistForm() {
                 className="bg-white/4 border border-white/10 rounded-2xl p-8 grid sm:grid-cols-2 gap-5"
               >
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-[#F8FAFC]/60 uppercase tracking-wider">
+                  <label className="text-xs font-semibold text-[#F8FAFC]/60">
                     Full Name
                   </label>
                   <input
@@ -207,7 +200,7 @@ export default function WaitlistForm() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-[#F8FAFC]/60 uppercase tracking-wider">
+                  <label className="text-xs font-semibold text-[#F8FAFC]/60">
                     Email Address
                   </label>
                   <input
@@ -221,7 +214,7 @@ export default function WaitlistForm() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-[#F8FAFC]/60 uppercase tracking-wider">
+                  <label className="text-xs font-semibold text-[#F8FAFC]/60">
                     City / Town
                   </label>
                   <input
@@ -234,7 +227,7 @@ export default function WaitlistForm() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-[#F8FAFC]/60 uppercase tracking-wider">
+                  <label className="text-xs font-semibold text-[#F8FAFC]/60">
                     Primary Use Case
                   </label>
                   <select

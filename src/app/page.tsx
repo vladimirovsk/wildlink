@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import FactsStrip from "@/components/FactsStrip";
 import DeviceUX from "@/components/DeviceUX";
 import MeshAnimation from "@/components/MeshAnimation";
 import MeshExplainer from "@/components/MeshExplainer";
@@ -12,6 +13,7 @@ import AppPromo from "@/components/AppPromo";
 import PartnershipSection from "@/components/PartnershipSection";
 import WaitlistForm from "@/components/WaitlistForm";
 import SupportSection from "@/components/SupportSection";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import DonationSuccessModal from "@/components/DonationSuccessModal";
 import EmailVerifiedModal from "@/components/EmailVerifiedModal";
@@ -27,16 +29,18 @@ export default function Home() {
       </Suspense>
       <Navbar />
       <Hero />
+      <FactsStrip />
       <DeviceUX />
       <MeshAnimation />
       <MeshExplainer />
       <UsageScenarios />
+      <AppPromo />
       <ComparisonTable />
       <RangeScience />
       <FounderStory />
-      <AppPromo />
-      <PartnershipSection />
       <WaitlistForm />
+      <FAQ />
+      <PartnershipSection />
       <SupportSection />
       <Footer />
     </>

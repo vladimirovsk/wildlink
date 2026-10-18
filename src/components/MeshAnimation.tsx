@@ -158,21 +158,11 @@ export default function MeshAnimation() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12 max-w-3xl mx-auto"
+          className="mb-12 max-w-3xl"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#FF5C00]" />
-            <span className="text-xs uppercase tracking-widest text-[#FF5C00] font-semibold">The Mesh</span>
-            <div className="h-px w-12 bg-[#FF5C00]" />
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-            No Single Point of Failure.
-            <br />
-            <span className="text-[#FF5C00]">Signal Hops Between Hikers.</span>
-          </h2>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-[#F8FAFC]">No Single Point of Failure. Signal Hops Between Hikers.</h2>
           <p className="text-[#F8FAFC]/60 text-lg">
             Every WildLink device acts as both a tracker and a relay. An SOS from the deepest
             point in the group reaches the base station in milliseconds — hopping through
@@ -182,7 +172,6 @@ export default function MeshAnimation() {
 
         {/* Mode toggle */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
           className="flex justify-center mb-8"
@@ -213,7 +202,6 @@ export default function MeshAnimation() {
 
         {/* Animation container */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative bg-white/3 border border-white/10 rounded-3xl overflow-hidden max-w-5xl mx-auto"
@@ -472,14 +460,13 @@ export default function MeshAnimation() {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-10 grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
         >
           {(mode === "sos" ? SOS_STATS : GUARDIAN_STATS).map((stat) => (
             <div key={stat.label} className="bg-white/4 border border-white/10 rounded-2xl p-5">
-              <div className="text-3xl font-black text-[#FF5C00] mb-1">{stat.value}</div>
+              <div className="text-3xl font-bold text-[#FF5C00] mb-1">{stat.value}</div>
               <div className="text-sm font-bold text-[#F8FAFC]">{stat.label}</div>
               <div className="text-xs text-[#F8FAFC]/40 mt-0.5">{stat.sub}</div>
             </div>

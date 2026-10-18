@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Barlow_Condensed, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const sourceSans = Source_Sans_3({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+const barlow = Barlow_Condensed({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
 });
 
 const SITE_URL = "https://wildlink.ca";
@@ -150,7 +157,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${sourceSans.variable} ${barlow.variable} h-full antialiased`}>
       <head>
         <script
           type="application/ld+json"

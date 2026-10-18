@@ -98,24 +98,12 @@ export default function PartnershipSection() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="max-w-3xl mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#FF5C00]" />
-            <span className="text-xs uppercase tracking-widest text-[#FF5C00] font-semibold">
-              Partnerships & Investment
-            </span>
-            <div className="h-px w-12 bg-[#FF5C00]" />
-          </div>
 
-          <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-            Accelerating the Future
-            <br />
-            <span className="text-[#FF5C00]">of Outdoor Safety.</span>
-          </h2>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-[#F8FAFC]">Accelerating the Future of Outdoor Safety.</h2>
 
           <p className="text-[#F8FAFC]/60 text-lg leading-relaxed">
             WildLink has moved from concept to field-validated hardware, led by a Senior
@@ -128,7 +116,6 @@ export default function PartnershipSection() {
 
         {/* Proof points — technical achievements */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-16"
@@ -136,13 +123,12 @@ export default function PartnershipSection() {
           {proofPoints.map(({ icon: Icon, stat, label }, i) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 + i * 0.06 }}
               className="bg-white/4 border border-white/10 rounded-2xl p-4 text-center hover:border-[#FF5C00]/30 transition-colors"
             >
               <Icon size={16} className="text-[#FF5C00] mx-auto mb-2" />
-              <div className="text-xl font-black text-[#F8FAFC] mb-1">{stat}</div>
+              <div className="text-xl font-bold text-[#F8FAFC] mb-1">{stat}</div>
               <div className="text-[10px] text-[#F8FAFC]/45 font-medium leading-tight">{label}</div>
             </motion.div>
           ))}
@@ -153,7 +139,6 @@ export default function PartnershipSection() {
           {tracks.map(({ icon: Icon, tag, title, body, bullets, cta, href, accent }, i) => (
             <motion.div
               key={tag}
-              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 + i * 0.1 }}
               className="relative bg-white/3 border border-white/10 rounded-2xl p-7 flex flex-col gap-5 hover:border-white/20 transition-all duration-300 group"
@@ -183,7 +168,7 @@ export default function PartnershipSection() {
                 </span>
               </div>
 
-              <h3 className="text-lg font-black text-[#F8FAFC] leading-snug">{title}</h3>
+              <h3 className="text-lg font-bold text-[#F8FAFC] leading-snug">{title}</h3>
 
               <p className="text-sm text-[#F8FAFC]/55 leading-relaxed flex-1">{body}</p>
 
@@ -219,7 +204,6 @@ export default function PartnershipSection() {
 
         {/* Bottom CTA bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="relative bg-gradient-to-r from-[#FF5C00]/10 via-[#FF5C00]/6 to-transparent border border-[#FF5C00]/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"

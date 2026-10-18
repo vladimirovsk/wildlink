@@ -1,55 +1,51 @@
-"use client";
+import { MapPin } from "lucide-react";
 
-import { MapPin, Heart } from "lucide-react";
+const links = [
+  { label: "How it works", href: "#device" },
+  { label: "Scenarios", href: "#scenarios" },
+  { label: "Compare", href: "#compare" },
+  { label: "Our story", href: "#story" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Partners", href: "#partners" },
+  { label: "Join beta", href: "#waitlist" },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#070f09] border-t border-white/8 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Brand */}
-          <div className="flex flex-col items-center sm:items-start gap-2">
-            <span className="text-xl font-black text-[#F8FAFC]">
-              Wild<span className="text-[#FF5C00]">Link</span>
-              <span className="text-[#FF5C00] text-sm font-semibold">.ca</span>
+    <footer className="bg-[#070f09] py-14 text-alpine">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-xs">
+            <span className="font-display text-3xl font-semibold tracking-tight">
+              Wild<span className="text-orange">Link</span>
+              <span className="text-base font-medium text-orange">.ca</span>
             </span>
-            <div className="flex items-center gap-1.5 text-xs text-[#F8FAFC]/30">
-              <MapPin size={10} className="text-[#FF5C00]" />
-              <span>Built in Canada</span>
-            </div>
+            <p className="mt-3 text-sm leading-relaxed text-alpine/65">
+              Group tracking and SOS for the backcountry. No cell service, no
+              subscription.
+            </p>
+            <p className="mt-4 flex items-center gap-1.5 text-sm text-alpine/65">
+              <MapPin size={14} className="text-orange" />
+              Calgary, Alberta, Canada
+            </p>
           </div>
 
-          {/* Nav */}
-          <nav className="flex flex-wrap justify-center gap-6">
-            {[
-              { label: "How It Works", href: "#device" },
-              { label: "Compare", href: "#compare" },
-              { label: "Our Story", href: "#story" },
-              { label: "Join Beta", href: "#waitlist" },
-            ].map((link) => (
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-3 sm:grid-cols-3">
+            {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs text-[#F8FAFC]/40 hover:text-[#F8FAFC]/70 transition-colors"
+                className="text-sm text-alpine/70 transition-colors hover:text-alpine"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-
-          {/* Made with love */}
-          <div className="flex items-center gap-1.5 text-xs text-[#F8FAFC]/25">
-            <span>Made with</span>
-            <Heart size={10} className="text-[#FF5C00] fill-[#FF5C00]" />
-            <span>for the Rockies</span>
-          </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 text-center">
-          <p className="text-xs text-[#F8FAFC]/20">
-            © 2025 WildLink Technologies Inc. All rights reserved. Calgary, Alberta, Canada.
-          </p>
-        </div>
+        <p className="mt-12 border-t border-white/10 pt-6 text-sm text-alpine/55">
+          © 2025 WildLink Technologies Inc. All rights reserved.
+        </p>
       </div>
     </footer>
   );

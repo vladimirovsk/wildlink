@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Radio, RefreshCw, Globe, ShieldCheck, Zap, ChevronRight } from "lucide-react";
+import { Radio, RefreshCw, Globe, ShieldCheck } from "lucide-react";
 
 // ─── Relay Race SVG ───────────────────────────────────────────────────────────
 
@@ -161,206 +159,93 @@ function RelayDiagram() {
 
 // ─── FAQ ─────────────────────────────────────────────────────────────────────
 
-const faqs = [
-  {
-    q: "What is Meshtastic?",
-    a: "An open-source protocol that lets small, low-power radio devices form a self-organising network — without any cell towers, Wi-Fi, or satellites. Thousands of engineers worldwide contribute to it every day, making it more reliable with every update.",
-  },
-  {
-    q: "Does every device become a relay?",
-    a: "Yes. Every WildLink device in your group automatically acts as a relay for others. The more devices on the trail, the wider and stronger the coverage. You do not configure anything — the mesh self-organises.",
-  },
-  {
-    q: "What happens if one device goes offline?",
-    a: "The mesh detects the gap within seconds and routes around it. Unlike a cell tower — which causes a total blackout if it fails — losing one WildLink node simply changes the path, not the outcome.",
-  },
-  {
-    q: "Is WildLink compatible with other Meshtastic devices?",
-    a: "Yes. WildLink is built on the Meshtastic standard and can communicate with any compatible device on the same channel configuration. You are not locked into our hardware ecosystem.",
-  },
-];
-
-// ─── Feature cards ────────────────────────────────────────────────────────────
-
 const features = [
   {
     icon: Radio,
-    title: "Decentralised by Design",
-    body: "No server, no cloud, no single point of failure. The network lives inside the devices themselves — in your pocket on every trail.",
+    title: "Decentralised by design",
+    body: "No server, no cloud, no single point of failure. The network lives inside the devices themselves, in your pocket on every trail.",
   },
   {
     icon: RefreshCw,
-    title: "Self-Healing Network",
+    title: "Self-healing network",
     body: "When a node moves out of range, the mesh automatically discovers new routes. The person at the back of the group stays connected to the front without lifting a finger.",
   },
   {
     icon: Globe,
-    title: "Open-Source Foundation",
+    title: "Open-source foundation",
     body: "Built on the global Meshtastic protocol. Hundreds of engineers improve the firmware every month. WildLink contributes a professional, field-hardened implementation for Canadian Rockies conditions.",
   },
   {
     icon: ShieldCheck,
-    title: "Network Effect = Safer Trails",
+    title: "Network effect, safer trails",
     body: "Every new WildLink device on a trail extends coverage for everyone. As adoption grows across Kananaskis and Banff, we are collectively building infrastructure that no corporation controls.",
   },
 ];
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+const meshtasticFacts = [
+  { value: "10k+", label: "Active Meshtastic contributors globally" },
+  { value: "LoRa", label: "915 MHz, ISM band, no licence required" },
+  { value: "MIT", label: "Open-source licence, full transparency" },
+];
 
 export default function MeshExplainer() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-
   return (
-    <section
-      id="mesh"
-      className="relative py-24 lg:py-32 bg-[#0F1F16] overflow-hidden"
-      ref={ref}
-    >
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-emerald-900/15 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#FF5C00]" />
-            <span className="text-xs uppercase tracking-widest text-[#FF5C00] font-semibold">
-              How the Network Works
-            </span>
-            <div className="h-px w-12 bg-[#FF5C00]" />
-          </div>
-
-          <h2 className="text-4xl lg:text-5xl font-black text-[#F8FAFC] leading-tight mb-5">
-            The Mesh Revolution:
-            <br />
-            <span className="text-[#FF5C00]">Strength in Numbers.</span>
+    <section id="mesh" className="bg-stone py-20 text-forest lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+          <h2 className="font-display text-5xl font-semibold leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
+            The mesh revolution: strength in numbers.
           </h2>
-
-          <p className="text-[#F8FAFC]/60 text-lg leading-relaxed">
-            Each WildLink device is not just a receiver — it is a relay. Every person in
-            your group silently extends the network for everyone else. No towers.
+          <p className="max-w-lg text-lg leading-relaxed text-forest/75">
+            Each WildLink device is not just a receiver, it is a relay. Every person
+            in your group silently extends the network for everyone else. No towers.
             No subscriptions. No single point of failure.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Relay diagram */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-16 bg-white/3 border border-white/10 rounded-2xl p-6 lg:p-10"
-        >
-          <div className="text-center mb-6">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-[#F8FAFC]/40 uppercase tracking-widest">
-              <Zap size={12} className="text-[#FF5C00]" />
-              The Digital Relay Race — a mountain valley, no cell signal
-            </span>
-          </div>
+        <figure className="mt-14 overflow-hidden rounded-2xl bg-forest p-4 sm:p-8 lg:p-10">
+          <figcaption className="mb-6 text-center text-sm font-medium text-alpine/70">
+            The digital relay race: a mountain valley, no cell signal
+          </figcaption>
           <RelayDiagram />
-        </motion.div>
+        </figure>
 
-        {/* Feature cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-          {features.map(({ icon: Icon, title, body }, i) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.15 + i * 0.07 }}
-              className="bg-white/3 border border-white/10 rounded-2xl p-6 hover:border-[#FF5C00]/25 transition-all duration-200 group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#FF5C00]/10 border border-[#FF5C00]/20 flex items-center justify-center mb-4 group-hover:bg-[#FF5C00]/15 transition-colors">
-                <Icon size={18} className="text-[#FF5C00]" />
-              </div>
-              <h3 className="text-sm font-bold text-[#F8FAFC] mb-2 leading-snug">{title}</h3>
-              <p className="text-xs text-[#F8FAFC]/50 leading-relaxed">{body}</p>
-            </motion.div>
+        <div className="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map(({ icon: Icon, title, body }) => (
+            <div key={title} className="border-t-2 border-forest pt-5">
+              <Icon size={22} className="mb-4 text-lake" />
+              <h3 className="font-display text-2xl font-semibold leading-tight">{title}</h3>
+              <p className="mt-2 leading-relaxed text-forest/75">{body}</p>
+            </div>
           ))}
         </div>
 
-        {/* Two-column: Meshtastic callout + FAQ */}
-        <div className="grid lg:grid-cols-5 gap-6">
-
-          {/* Meshtastic badge — 2 cols */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-2 bg-gradient-to-b from-emerald-900/20 to-emerald-900/5 border border-emerald-500/20 rounded-2xl p-7 flex flex-col gap-6"
-          >
-            <div>
-              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/25 px-3 py-1.5 rounded-full mb-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Open Source</span>
-              </div>
-              <h3 className="text-xl font-black text-[#F8FAFC] mb-3">
-                Built on Meshtastic —<br />
-                <span className="text-emerald-400">the global mesh standard.</span>
-              </h3>
-              <p className="text-sm text-[#F8FAFC]/55 leading-relaxed">
-                Meshtastic is a worldwide open-source project with thousands of
-                active contributors. It is not a proprietary &quot;black box&quot; — it is
-                a transparent, auditable protocol that engineers across the globe
-                are improving every day.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              {[
-                { value: "10k+",  label: "Active Meshtastic contributors globally" },
-                { value: "LoRa",  label: "915 MHz — ISM band, no licence required" },
-                { value: "MIT",   label: "Open-source licence — full transparency" },
-              ].map(({ value, label }) => (
-                <div key={label} className="flex items-center gap-3">
-                  <span className="font-mono text-sm font-black text-emerald-400 w-12 flex-shrink-0">{value}</span>
-                  <span className="text-xs text-[#F8FAFC]/45">{label}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-xs text-[#F8FAFC]/35 leading-relaxed border-t border-white/8 pt-4">
-              WildLink contributes a professionally engineered, field-hardened
-              implementation of this standard — optimised specifically for the
-              terrain, climate, and safety requirements of the Canadian Rockies.
-            </p>
-          </motion.div>
-
-          {/* FAQ — 3 cols */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.35 }}
-            className="lg:col-span-3 flex flex-col gap-3"
-          >
-            <h3 className="text-sm font-black text-[#F8FAFC]/50 uppercase tracking-widest mb-2">
-              Common Questions
+        <div className="mt-16 grid gap-10 rounded-2xl border border-forest/15 bg-mist p-8 lg:grid-cols-[1.2fr_1fr] lg:p-10">
+          <div>
+            <h3 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
+              Built on Meshtastic, the global mesh standard.
             </h3>
-            {faqs.map(({ q, a }, i) => (
-              <motion.div
-                key={q}
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + i * 0.07 }}
-                className="bg-white/3 border border-white/8 rounded-xl p-5 hover:border-white/15 transition-colors"
-              >
-                <div className="flex items-start gap-3 mb-2">
-                  <ChevronRight size={14} className="text-[#FF5C00] flex-shrink-0 mt-0.5" />
-                  <span className="text-sm font-bold text-[#F8FAFC]">{q}</span>
-                </div>
-                <p className="text-sm text-[#F8FAFC]/50 leading-relaxed pl-5">{a}</p>
-              </motion.div>
+            <p className="mt-4 max-w-xl leading-relaxed text-forest/75">
+              Meshtastic is a worldwide open-source project with thousands of active
+              contributors. It is not a proprietary &quot;black box&quot;: it is a
+              transparent, auditable protocol that engineers across the globe are
+              improving every day.
+            </p>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-forest/70">
+              WildLink contributes a professionally engineered, field-hardened
+              implementation of this standard, optimised for the terrain, climate,
+              and safety requirements of the Canadian Rockies.
+            </p>
+          </div>
+          <dl className="flex flex-col justify-center gap-5">
+            {meshtasticFacts.map(({ value, label }) => (
+              <div key={label} className="flex items-baseline gap-4">
+                <dt className="w-20 shrink-0 font-display text-3xl font-semibold">{value}</dt>
+                <dd className="text-forest/75">{label}</dd>
+              </div>
             ))}
-          </motion.div>
-
+          </dl>
         </div>
-
       </div>
     </section>
   );

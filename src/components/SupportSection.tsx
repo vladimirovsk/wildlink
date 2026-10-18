@@ -81,37 +81,25 @@ export default function SupportSection() {
   };
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#0a1810]" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F1F16] to-[#0a1810]" />
+    <section className="relative py-20 lg:py-28 bg-stone" ref={ref}>
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
           {/* Icon */}
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#FF5C00]/10 border border-[#FF5C00]/20 mb-6">
-            <Heart size={24} className="text-[#FF5C00]" />
+            <Heart size={24} className="text-[#B53D00]" />
           </div>
 
           {/* Label */}
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="h-px w-10 bg-white/15" />
-            <span className="text-xs uppercase tracking-widest text-[#F8FAFC]/40 font-semibold">
-              Support the Project
-            </span>
-            <div className="h-px w-10 bg-white/15" />
-          </div>
 
           {/* Heading */}
-          <h2 className="text-3xl lg:text-4xl font-black text-[#F8FAFC] leading-tight mb-5">
-            An independent R&D initiative,{" "}
-            <span className="text-[#FF5C00]">self-funded from day one.</span>
-          </h2>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1] tracking-tight mb-5 text-forest">An independent R&D initiative,{" "} self-funded from day one.</h2>
 
           {/* Body */}
-          <p className="text-[#F8FAFC]/60 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+          <p className="text-forest/68 text-base leading-relaxed mb-8 max-w-xl mx-auto">
             WildLink is a Canada-based engineering initiative with no outside investors
             and no corporate budget. Every prototype, every LoRa module, and every field
             run in Kananaskis has been funded personally. If this mission resonates with
@@ -123,18 +111,18 @@ export default function SupportSection() {
             {spends.map(({ icon: Icon, label }) => (
               <div
                 key={label}
-                className="flex items-center gap-2 bg-white/4 border border-white/10 px-4 py-2 rounded-full"
+                className="flex items-center gap-2 bg-forest/[0.04] border border-forest/15 px-4 py-2 rounded-full"
               >
-                <Icon size={14} className="text-[#F8FAFC]/50" />
-                <span className="text-xs text-[#F8FAFC]/60 font-medium">{label}</span>
+                <Icon size={14} className="text-forest/68" />
+                <span className="text-xs text-forest/68 font-medium">{label}</span>
               </div>
             ))}
           </div>
 
           {/* Donation form */}
-          <div className="bg-white/4 border border-white/10 rounded-2xl p-6 sm:p-8 max-w-md mx-auto">
+          <div className="bg-forest/[0.04] border border-forest/15 rounded-2xl p-6 sm:p-8 max-w-md mx-auto">
             {/* Preset amounts */}
-            <p className="text-xs font-semibold text-[#F8FAFC]/50 uppercase tracking-wider mb-3">
+            <p className="text-xs font-semibold text-forest/68 mb-3">
               Select amount (CAD)
             </p>
             <div className="grid grid-cols-4 gap-2 mb-4">
@@ -146,7 +134,7 @@ export default function SupportSection() {
                   className={`py-2.5 rounded-xl text-sm font-bold transition-all duration-150 ${
                     custom === "" && selected === amount
                       ? "bg-[#FF5C00] text-white shadow-lg shadow-[#FF5C00]/20"
-                      : "bg-white/6 border border-white/15 text-[#F8FAFC]/70 hover:border-[#FF5C00]/40 hover:text-[#F8FAFC]"
+                      : "bg-forest/[0.04] border border-forest/15 text-forest/70 hover:border-[#FF5C00]/40 hover:text-forest"
                   }`}
                 >
                   ${amount}
@@ -156,7 +144,7 @@ export default function SupportSection() {
 
             {/* Custom amount */}
             <div className="relative mb-5">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#F8FAFC]/40 text-sm font-semibold">
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-forest/68 text-sm font-semibold">
                 $
               </span>
               <input
@@ -166,9 +154,9 @@ export default function SupportSection() {
                 value={custom}
                 onChange={(e) => handleCustomChange(e.target.value)}
                 onFocus={() => setSelected(0)}
-                className="w-full bg-white/5 border border-white/15 focus:border-[#FF5C00]/60 outline-none rounded-xl pl-8 pr-16 py-3 text-[#F8FAFC] placeholder:text-[#F8FAFC]/25 text-sm transition-colors"
+                className="w-full bg-forest/[0.04] border border-forest/15 focus:border-[#FF5C00]/60 outline-none rounded-xl pl-8 pr-16 py-3 text-forest placeholder:text-forest/50 text-sm transition-colors"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#F8FAFC]/30 text-xs font-semibold">
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-forest/68 text-xs font-semibold">
                 CAD
               </span>
             </div>
@@ -176,16 +164,16 @@ export default function SupportSection() {
             {/* Validation error */}
             {error && (
               <div className="flex items-center gap-2 bg-red-500/10 border border-red-500/25 rounded-xl px-4 py-2.5 mb-4 text-left">
-                <AlertCircle size={14} className="text-red-400 flex-shrink-0" />
-                <span className="text-xs text-red-400">{error}</span>
+                <AlertCircle size={14} className="text-red-700 flex-shrink-0" />
+                <span className="text-xs text-red-700">{error}</span>
               </div>
             )}
 
             {/* Amount preview */}
             {isValid && (
-              <p className="text-xs text-[#F8FAFC]/35 mb-4">
+              <p className="text-xs text-forest/68 mb-4">
                 You&apos;re donating{" "}
-                <span className="text-[#FF5C00] font-bold">
+                <span className="text-[#B53D00] font-bold">
                   ${effectiveAmount.toFixed(2)} CAD
                 </span>{" "}
                 — thank you!
@@ -201,7 +189,7 @@ export default function SupportSection() {
             >
               {loading ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="w-5 h-5 border-2 border-forest/15 border-t-white rounded-full animate-spin" />
                   Redirecting to Stripe…
                 </>
               ) : (
@@ -213,7 +201,7 @@ export default function SupportSection() {
               )}
             </button>
 
-            <p className="mt-3 text-[10px] text-[#F8FAFC]/25 leading-relaxed">
+            <p className="mt-3 text-[10px] text-forest/68 leading-relaxed">
               Secure checkout via Stripe. One-time payment — no subscription.
               Minimum $1.00 CAD.
             </p>
