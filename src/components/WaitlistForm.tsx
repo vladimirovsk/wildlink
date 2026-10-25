@@ -1,9 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, CheckCircle, MapPin, Shield, Tag, Heart, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import Turnstile from "@/components/Turnstile";
+
+// Without a site key the widget is skipped (local dev); the backend only checks
+// the token once TURNSTILE_WILDLINK_SECRET is set there.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function WaitlistForm() {
   const ref = useRef<HTMLDivElement>(null);
@@ -13,6 +18,16 @@ export default function WaitlistForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+  // Anti-spam signals checked by the backend: a hidden field only bots fill, and how long
+  // the visitor took (measured here, so a wrong clock cannot skew it).
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const shownAtRef = useRef(0);
+
+  useEffect(() => {
+    shownAtRef.current = Date.now();
+  }, []);
 
   // Donation mini-form state
   const [donationAmount, setDonationAmount] = useState<number>(10);
@@ -43,6 +58,10 @@ export default function WaitlistForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setError("Please wait a moment while we check that you are not a robot, then send again.");
+      return;
+    }
     setLoading(true);
     setError(null);
 
@@ -62,6 +81,9 @@ export default function WaitlistForm() {
           city: form.city || undefined,
           note: form.useCase || undefined,
           source: "wildlink-waitlist",
+          website: honeypotRef.current?.value ?? "",
+          fillMs: Date.now() - shownAtRef.current,
+          turnstileToken: turnstileToken ?? undefined,
         }),
       });
 
@@ -73,7 +95,12 @@ export default function WaitlistForm() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error((data as { message?: string }).message ?? "Something went wrong");
+        const message = (data as { message?: string }).message;
+        throw new Error(
+          message === "verification_failed"
+            ? "We could not verify that you are human. Please try again."
+            : (message ?? "Something went wrong"),
+        );
       }
 
       setSubmitted(true);
@@ -81,6 +108,8 @@ export default function WaitlistForm() {
       setError(err instanceof Error ? err.message : "Failed to submit. Please try again.");
     } finally {
       setLoading(false);
+      // Turnstile tokens are single-use: get a fresh one for the next attempt.
+      setTurnstileResetKey((key) => key + 1);
     }
   };
 
@@ -243,6 +272,24 @@ export default function WaitlistForm() {
                     <option value="other" className="bg-[#0F1F16]">Other</option>
                   </select>
                 </div>
+
+                {/* Honeypot: off-screen and skipped by keyboard and screen readers. */}
+                <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
+                  <label>
+                    Website
+                    <input ref={honeypotRef} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                  </label>
+                </div>
+
+                {TURNSTILE_SITE_KEY && (
+                  <div className="sm:col-span-2">
+                    <Turnstile
+                      siteKey={TURNSTILE_SITE_KEY}
+                      onToken={setTurnstileToken}
+                      resetKey={turnstileResetKey}
+                    />
+                  </div>
+                )}
 
                 {error && (
                   <div className="sm:col-span-2 bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-sm text-red-400">
