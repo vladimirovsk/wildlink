@@ -43,9 +43,19 @@ export default function Footer() {
           </nav>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-6 text-sm text-alpine/55">
-          © 2025 WildLink Technologies Inc. All rights reserved.
-        </p>
+        <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-sm text-alpine/55 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2025 WildLink Technologies Inc. All rights reserved.</p>
+          <p>
+            Hardware, firmware and software designed and built by{" "}
+            <a
+              href="https://www.itcoder.ca/"
+              className="text-alpine/75 underline-offset-2 transition-colors hover:text-alpine hover:underline"
+            >
+              IT CODER
+            </a>
+            , Calgary.
+          </p>
+        </div>
       </div>
     </footer>
   );
