@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-2 border-t border-white/10 pt-6 text-sm text-alpine/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 WildLink Technologies Inc. All rights reserved.</p>
+          <p>© 2025 WildLink, a project of IT CODER. All rights reserved.</p>
           <p>
             Hardware, firmware and software designed and built by{" "}
             <a
